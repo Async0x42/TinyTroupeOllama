@@ -674,7 +674,7 @@ register_client("openai", OpenAIClient())
 register_client("azure", AzureClient())
 # Registering the Ollama client
 register_client("ollama", OllamaClient(
-    base_url=config["Ollama"].get("BASE_URL"),
+    base_url=f"{config["Ollama"].get("BASE_URL")}/{config["Ollama"].get("ENDPOINT")}",
     model=config["Ollama"].get("MODEL"),
     temperature=float(config["Ollama"].get("TEMPERATURE", 0.7)),
     top_p=float(config["Ollama"].get("TOP_P", 0.95)),
